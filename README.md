@@ -71,7 +71,7 @@ uvicorn app.main:app --reload
 
 ## 🌐 API Docs
 
-http://127.0.0.1:8000/docs
+https://ml-api-demo-z6m1.onrender.com/docs
 
 ---
 
