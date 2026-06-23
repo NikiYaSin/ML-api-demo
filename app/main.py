@@ -23,8 +23,20 @@ def price(req: PriceRequest):
                 detail="No data found for the given ticker"
                 )
         return data
+   
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    
-    except Exception:
-        raise HTTPException(status_code=500, detail="Internal server error")
+        # client input error
+        raise HTTPException(
+            status_code=400, 
+            detail=str(e)
+            )
+
+    except Exception as e:
+        # server error (important: keep log)
+        import traceback
+        print(traceback.format_exc())
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+            )
